@@ -1,4 +1,4 @@
-# TSU DailyHeat
+# TSU TripleHeat / Auto-Admin
 
 Collection of scripts that allow automatic (no admin needed) scheduling/management of race events on a dedicated server in Turbo Sliders Unlimited.
 
