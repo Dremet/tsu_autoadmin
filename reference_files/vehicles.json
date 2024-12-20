@@ -1,0 +1,24 @@
+{
+  "selectedVehicles": {
+    "guids": [
+      "xn6aadw6r6b-2xjnwqj",
+      "waak1zrz5jb-2w460ss",
+      "12lz8e1vasxb-33azz83"
+    ],
+    "selectionType": "Choosable"
+  },
+  "possibleVehicles": [
+    {
+      "name": "Grand Prix F1 v8",
+      "guid": "xn6aadw6r6b-2xjnwqj"
+    },
+    {
+      "name": "V8Vantage AMRGTE NWT",
+      "guid": "waak1zrz5jb-2w460ss"
+    },
+    {
+      "name": "Mazda RX-7 RZ GrT",
+      "guid": "12lz8e1vasxb-33azz83"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+# This is the default dedicated server setup script. Since this is
+# included in the installation packet, you should not modify this but
+# instead, make a copy with a different name and use it. Otherwise,
+# the original version will get replaced when the server is upgraded.
+# To take another setup in use, either use command-line parameter 
+# -setup <setup> or use admin command /setup. If you have several setups, 
+# you can also enable voting for setups.
+#
+# If you make several setups, you should be consistent about which 
+# variables will get changed in a setup script since the values
+# are not reset to default. Commands are just run as any other script
+# commands and all values that are not explicitly set will keep their 
+# previous values.
+#
+# The default setup defined here will initialize a new game session with 
+# 10 random tracks (3 laps with Sporty) with voting enabled at event init.
+#
+# More setup information and other help in README-server.txt.
+
+# Recording settings
+/recording.recordingAccuracy = Very High
+/recording.recordEverything = True
+/recording.keepAmount = Everything
+/recording.recordOnlineGamesAsHost = True
+/recording.embedLevelInRecording = True
+/recording.logStartAndEnd = True
+/recording.recordSession = True
+
+# Add remote Admins
+/admin /add 76561199107580352
+/admin /add 76561198066556060
+/admin /add 76561198055146098
+/admin /add 76561198131829686
+/admin /add 76561198991237382
+
+# Server setting
+/maxtimestep 250
+
+# These settings adjust how random levels are selected.
+# Adding weight gives more probability for those levels to come.
+# Weights are multiplied, and using 0 makes those levels impossible.
+# Use /addrandomlevels /info to see the probabilities with 
+# current levels and settings.
+
+/addrandomlevels /clear 5
+
+/random.builtInWeight = 0.0
+/random.nonBuiltInWeight = 10.0
+/random.circuitWeight = 10.0
+/random.specialStageWeight = 0.0
+/random.sumoWeight = 0.0
+/random.likedWeight = 0.0
+/random.recentWeight = 0.0
+/random.recentDays = 14
+
+# SET LOG SETTINGS FOR SESSION
+/logging = Permanent
+
+# SET RACE SETTINGS FOR SESSION
+/raceMode = Race
+/alwaysHotlapWhenAlone = false
+/maxLaps = 6
+/maxMinutes = 1440
+/contactRules = Normal
+/startingOrder = ReverseStandings
+/startStyle = Random
+/relativeFinishTime = 1.8
+/finishExtraSeconds = 100
+
+# SET POINTS FOR SESSION
+/pointsForFastestLap = 1
+/position1 = 25
+/position2 = 20
+/position3 = 18
+/position4 = 16
+/position5 = 14
+/position6 = 12
+/position7 = 10
+/position8 = 8
+/position9 = 7
+/position10 = 6
+/position11 = 5
+/position12 = 4
+/position13 = 3
+/position14 = 2
+/position15 = 1
+/position17 = 0
+/position18 = 0
+/position19 = 0
+/position20 = 0
+
+# SET RESPAWNING SETTINGS FOR SESSION
+/maxRespawnCount = -1
+/respawnTime = 1
+/respawnHeight = 1
+/startBehindWhenHottlaping = true
+/hotlapBehindDistance = 1000
+
+# SET DRAFTING SETTINGS FOR SESSION
+/draftingOn = True
+/maxDraftingDistance = 23
+/maxDraftingAngle = 14
+/draftingSpeedEffect = 9
+/draftingDownforceReduction = 45
+/draftingGripReduction = 0
+/draftingForMaximumEffect = 82
+/draftingAttenuationPower = 2
+/draftingOnInGhostRaces = false
+
+# SET PHYSICS SETTINGS FOR SESSION
+/collisionSteadiness = 10
+/collisionExtraStability = 50
+/collisionAvoidance = 10
+/deadlyTerrain = false
+/experimentalSettings = false
+
+# SET FUEL SETTINGS FOR SESSION
+/fuelOn = InRaces
+/fuelFullGasTime = 350
+/refuelTime = 16
+/noFuelSlowdown = 100
+/fullTankSlowdown = 5
+/canChangeInitialFuel = true
+
+# SET TIRE WEAR SETTINGS FOR SESSION
+/tireWearOn = InRaces
+/tireChangeTime = 10
+/tireCompoundCount = 3
+/compound1Name = Soft
+/compound1InitialPerformance = 100
+/compound1Endurance = 300
+/compound2Name = Medium
+/compound2InitialPerformance = 89
+/compound2Endurance = 450
+/compound3Name = Hard
+/compound3InitialPerformance = 78
+/compound3Endurance = 600
+/tireWearEffectCurve = 4
+/tireWearGripEffect = 25
+/tireWearOversteeringEffect = 15
+/tireWearBrakingEffect = 50
+/tireWearSlowdownEffect = 5
+/tireWearSlowdown = 50
+/tireWearForBraking = 8
+/tireWearForLockedBraking = 16
+/tireWearForTurning = 6
+/tireWearForSliding = 12
+/tireWearForRoughSurface = 12
+
+# SET DAMAGE SETTINGS FOR SESSION
+# When CollisionDamageOn is set to true, then maxRespawnCount needs to be set to 0 (currently -1)
+/collisionDamageOn = false
+/vehicleCollisionDamage = 150
+/collisionDamage = 150
+/frontalCollisionDamageReduction = 3
+/rearCollisionDamageReduction = 7
+/repairTime = 10
+/automaticRepairTime = 0
+/maxDamageSlowdown = 45
+/slowdownStartHealth = 75
+/maxDamageDownforceLoss = 78
+/downforceLossStartHealth = 99
+/healthAfterRespawning = 5
+
+# SET PIT SETTINGS FOR SESSION
+/immovablePitStop = true
+/pitAreaSlowdown = Always
+/canRespawnWithPitSlowdown = false
+/pitSlowdownAmount = 60
+/pitSlowdownFuelConsumption = OneThird
+
+# SET SPECIAL SETTINGS FOR SESSION
+/forcedCameraPreset = none
+/forcedCameraWhenDisabled = Released
+/canLookBackWhenForced = true
+/canLookAroundWhenForced = true
+/hidePlayerMarkers = false
+
+# SET HOST SETTINGS FOR SESSION
+/discoverability = Public
+/serverName = TSURA-1
+/info = Official TSURA Server
+/welcomeMessage = Welcome!
+/maxPlayers = 20
+/spectatorsAllowed = 20
+/continuousJoining = true
+/refreshFilesAtSessionInit = true
+
+# SET TIMER SETTINGS FOR SESSION
+/timerOn = true
+/sessionInitTime = 45
+/minSessionInitTime = 45
+/eventInitTime = 45
+/levelLoadingTime = 45
+/vehicleSetupTime = 45
+/waitingStartTime = 5
+/eventRunningIdleTime = 60
+/sessionEndTime = 60
+/sessionIdleAbortTime = 120
+/restartSession = true
+/startWhenEveryoneReady = true
+
+# SET COMMAND SETTINGS FOR SESSION
+/automaticScripts = false
+/generateStatsFiles = true
+/nonAdminsMuted = false
+/spectatorsMuted = false
+
+# SET VOTING SETTINGS FOR SESSION
+/setupVotingOn = false
+/votingOn = true
+/votingOnAtSessionInit = false
+/votingOnAtEventInit = false
+/oneVoteEnoughOnlyAlone = false
+/resetVotedValues = false
+/vehicleVotingOn = false
+/lapsVotingOn = false
+/maxVotingLaps = 10
+/contactRulesVotingOn = false
+/abortVotingOn = true
+
+# SET LEVEL SETTINGS FOR SESSION
+/heats = 1
+/repeatLoops = 1
+/order = RandomizeLoop
+/maxLevels = 1000
+/standingsHistory = 100
+
+# SET VEHICLE SETTINGS FOR SESSION
+# If name of vehicle has spaces (white space) then it needs to be set in quotes
+/selectionType = Choosable
+/vehicles /clear
+/vehicles /remove Sporty
+/vehicles /remove Drifty
+/vehicles /remove Grippy
+/vehicles /remove Speedy
+/vehicles /add "V8Vantage AMRGTE NWT"
+/vehicles /add "Porsche911 RSR-19NWT"
+/vehicles /add "BMW M8 GTE NWT"
+/vehicles /add "Ford GT LM GTE NWT"
+/vehicles /add "Ferrari 488 GTE NWT"
+/vehicles /add "Jaguar F-Type GT4"
+/vehicles /add "F 458 Italia GT4"
+/vehicles /add "BMW M4 GT4"
+/vehicles /add "Cayman GT4 Clubsport"

@@ -1,0 +1,63 @@
+# This is the default dedicated server setup script. Since this is
+# included in the installation packet, you should not modify this but
+# instead, make a copy with a different name and use it. Otherwise,
+# the original version will get replaced when the server is upgraded.
+# To take another setup in use, either use command-line parameter 
+# -setup <setup> or use admin command /setup. If you have several setups, 
+# you can also enable voting for setups.
+#
+# If you make several setups, you should be consistent about which 
+# variables will get changed in a setup script since the values
+# are not reset to default. Commands are just run as any other script
+# commands and all values that are not explicitly set will keep their 
+# previous values.
+#
+# The default setup defined here will initialize a new game session with 
+# 10 random tracks (3 laps with Sporty) with voting enabled at event init.
+#
+# More setup information and other help in README-server.txt.
+
+
+# These settings adjust how random levels are selected.
+# Adding weight gives more probability for those levels to come.
+# Weights are multiplied, and using 0 makes those levels impossible.
+# Use /addrandomlevels /info to see the probabilities with 
+# current levels and settings.
+
+/random.builtInWeight = 2.0
+/random.nonBuiltInWeight = 1.0
+/random.circuitWeight = 1.0
+/random.specialStageWeight = 2.0
+/random.sumoWeight = 1.5
+/random.likedWeight = 2.0
+/random.recentWeight = 3.0
+/random.recentDays = 14
+
+# Selects 10 random levels using the settings above.
+
+/addrandomlevels /clear 10
+
+# Set session rules, see more possible options with e.g. /show race
+
+/vehicle Sporty
+/maxlaps = 3
+/contactRules = Normal
+
+# Voting preferences
+# Setup voting is not set here so that its value can be changed separately
+# /setupVotingOn = true
+
+/votingOn = true
+/votingOnAtSessionInit = false
+/votingOnAtEventInit = true
+/oneVoteEnoughOnlyAlone = true
+/resetVotedValues = true
+/vehicleVotingOn = true
+/lapsVotingOn = true
+/maxVotingLaps = 20
+/contactRulesVotingOn = true
+/abortVotingOn = true
+
+# This starts timer. Use /show timer to see the time options.
+
+/timerOn = true
