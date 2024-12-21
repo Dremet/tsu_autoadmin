@@ -13,7 +13,7 @@ TRACKS = [
     "Silverstone Circuit V1.04",
     "Circuit of the Americas v1.031",
     "Sepang Circuit V2.01",
-    "Hockenheimring GP v1.41",
+    "Hockenheimring GP v1.42",
     "Motorsport Arena Oschersleben v1",
     "National Racetrack Monza v1.5"
 ]
