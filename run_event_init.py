@@ -9,32 +9,34 @@ QUALI_FUEL = 500
 QUALI_TIRES = 800
 
 # RACE
-race_laps = random.randint(8,9)
+race_laps = random.randint(8, 9)
 RACE_MAX_MINUTES = 1440
 # generate random fuel consumption
 # the bigger the value, the longer the stints
-fuel = random.randint(220, 625)
-tires = random.randint(500,1600)
+fuel = random.randint(230, 625)
+tires = random.randint(500, 1600)
+
 
 ### HELPER ###
 def is_next_event_quali():
     """
-    Checks if a file called 'next_event_is_quali' exists, 
+    Checks if a file called 'next_event_is_quali' exists,
     and deletes it if it does.
     """
     exists = os.path.exists("next_event_is_quali")
-    
+
     if exists:
         os.remove("next_event_is_quali")
-    
+
     return exists
+
 
 ### MAIN ###
 
 quali = is_next_event_quali()
 print(quali)
 if quali:
-    commands=[ 
+    commands = [
         "/broadcast Setting up Qualifying",
         "/race.raceMode = Hotlapping",
         f"/race.maxLaps = {QUALI_LAPS}",
@@ -48,7 +50,7 @@ if quali:
         "/broadcast Hotlapping now, even if the User Interface might show different",
     ]
 else:
-    commands=[ 
+    commands = [
         "/broadcast Setting up Race",
         "/race.raceMode = Race",
         f"/race.maxLaps = {race_laps}",
@@ -66,4 +68,3 @@ else:
 print(commands)
 with open("event_init_generated.src", "w", encoding="utf-8-sig") as file:
     file.write("\n".join(commands) + "\n")
-
