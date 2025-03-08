@@ -9,21 +9,24 @@ import random
 NUMBER_TRACKS = 3
 
 TRACKS = [
-    ("Circuit of the Americas v1.031", 0.2),
-    ("Sepang Circuit V2.01", 0.2),
-    ("Barcelona GP - Catalunya v1.06", 0.2),
-    ("Silverstone Circuit V1.04", 0.2),
-    ("Japanese GP v2.03", 0.4),
-    ("Balaton Park Circuit v1.01", 0.4),
-    ("Hockenheimring GP v1.42", 0.4),
-    ("Motorsport Arena Oschersleben v1", 0.4),
-    ("National Racetrack Monza v1.5", 0.4),
-    ("Nanoli Full Circuit v1.4", 0.7),
-    ("TT Circuit Assen V1.7", 0.7),
-    ("Elethasia Island Circuit v1.01", 0.7),
+    ("Circuit of the Americas v1.031", 1),
+    ("Sepang Circuit V2.01", 1),
+    ("Barcelona GP - Catalunya v1.06", 1),
+    ("Silverstone Circuit V1.05", 1),
+    ("Japanese GP v2.04", 1),
+    ("Balaton Park Circuit v1.01", 1),
+    ("Hockenheimring GP v1.42", 1),
+    ("Motorsport Arena Oschersleben v1", 1),
+    ("National Racetrack Monza v1.5", 1),
+    ("Nanoli Full Circuit v1.4", 1),
+    ("TT Circuit Assen V1.7", 1),
+    ("Elethasia Island Circuit v1.01", 1),
     ("Watkins Glen International v1.3", 1),
-    ("Spa Francorchamps GP v3.11", 1),
+    ("Spa Francorchamps GP v3.12", 1),
     ("Hungaroring V2.04", 1),
+    ("Canadian GP v1.12", 1),
+    ("Australian GP v1.14", 1),
+    ("Daytona Road Course V2.01", 1),
 ]
 
 VEHICLES = [
@@ -138,17 +141,20 @@ def start_session():
     # add randomly selected tracks
     tracks = select_random_elements_with_weights(TRACKS, NUMBER_TRACKS)
 
-    # first track twice because we hotlap on it
-    first_track = tracks[0]
-    tracks.insert(0, first_track)
+    # duplicate each track for qualification
+    duplicated_tracks = []
+    for track in tracks:
+        # Add the track twice (first for hotlapping, then for race)
+        duplicated_tracks.append(track)  # Hotlapping
+        duplicated_tracks.append(track)  # Race
 
-    commands += [f"/level /add '{track}'" for track in tracks]
+    commands += [f"/level /add '{track}'" for track in duplicated_tracks]
 
     print(commands)
 
     commands += [
         "/broadcast ### Success! Everything has been set up! Enjoy the races!",
-        "/broadcast # There is a 1 lap quali on the first track. Starting order is always 'Last Event'.",
+        "/broadcast # There is a 1 lap qualifier for each track. Starting order is always 'Last Event'.",
         "/broadcast # Fuel consumption and tire degradation are randomized for each race.",
     ]
 

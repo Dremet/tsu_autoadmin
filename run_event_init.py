@@ -3,10 +3,10 @@ import random
 
 ### SETUP
 # QUALI
-QUALI_LAPS = 2
-QUALI_MAX_MINUTES = 5
-QUALI_FUEL = 500
-QUALI_TIRES = 800
+QUALI_LAPS = 1
+QUALI_MAX_MINUTES = 3
+# QUALI_FUEL = 500
+# QUALI_TIRES = 800
 
 # RACE
 race_laps = random.randint(8, 9)
@@ -27,6 +27,9 @@ def is_next_event_quali():
 
     if exists:
         os.remove("next_event_is_quali")
+    else:
+        with open("next_event_is_quali", "w") as file:
+            pass
 
     return exists
 
@@ -43,10 +46,10 @@ if quali:
         f"/race.maxMinutes = {QUALI_MAX_MINUTES}",
         "/race.startStyle = Countdown",
         "/race.ContactRules = EqualGhosts",
-        "/fuel.fuelOn = 1",
-        "/tireWear.tireWearOn = 1",
-        f"/fuelFullGasTime = {QUALI_FUEL}",
-        f"/tireWear.compound1Endurance = {QUALI_TIRES}",
+        "/fuel.fuelOn = 0",
+        "/tireWear.tireWearOn = 0",
+        # f"/fuelFullGasTime = {QUALI_FUEL}",
+        # f"/tireWear.compound1Endurance = {QUALI_TIRES}",
         "/broadcast Hotlapping now, even if the User Interface might show different",
     ]
 else:
