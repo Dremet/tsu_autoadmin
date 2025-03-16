@@ -6,6 +6,7 @@ python3 run_event_end.py
 ### MOVE STAT FILES
 # Path to the eventstats.json file
 EVENT_STATS_FILE="./eventstats.json"
+EVENT_STATS_DETAILS_FILE="./eventstats.details.log"
 SESSION_STATS_FILE="./sessionstats.json"
 
 # Directory where the file should be moved
@@ -37,11 +38,16 @@ fi
 
 # Extend the file name with the file extension
 EVENT_FILE_NAME="${NEW_FILE_NAME}_event.json"
+EVENT_DETAILS_FILE_NAME="${NEW_FILE_NAME}_event_details.log"
 SESSION_FILE_NAME="${NEW_FILE_NAME}_session.json"
 
 # Check if the source file exists and is not empty
 if [ ! -s "$EVENT_STATS_FILE" ]; then
   echo "Warning: The file '$EVENT_STATS_FILE' is empty or does not exist. An empty document will be moved."
+fi
+
+if [ ! -s "$EVENT_STATS_DETAILS_FILE" ]; then
+  echo "Warning: The file '$EVENT_STATS_DETAILS_FILE' is empty or does not exist. An empty document will be moved."
 fi
 
 if [ ! -s "$SESSION_STATS_FILE" ]; then
@@ -51,6 +57,9 @@ fi
 # Move the eventstats.json file to the target directory with the new file name
 mv "$EVENT_STATS_FILE" "$DEST_DIR/$EVENT_FILE_NAME"
 echo "Event stats file successfully moved to: $DEST_DIR/$EVENT_FILE_NAME"
+
+mv "$EVENT_STATS_DETAILS_FILE" "$DEST_DIR/$EVENT_DETAILS_FILE_NAME"
+echo "Event stats details log file successfully moved to: $DEST_DIR/$EVENT_DETAILS_FILE_NAME"
 
 mv "$SESSION_STATS_FILE" "$DEST_DIR/$SESSION_FILE_NAME"
 echo "Session stats file successfully moved to: $DEST_DIR/$SESSION_FILE_NAME"
