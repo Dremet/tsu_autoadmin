@@ -13,7 +13,7 @@ TRACKS = [
     ("Sepang Circuit V2.02", 1),
     ("Barcelona GP - Catalunya v1.06", 1),
     ("Silverstone Circuit V1.05", 1),
-    ("Japanese GP v2.04", 1),
+    ("Japanese GP v2.07", 1),
     ("Balaton Park Circuit v1.01", 1),
     ("Hockenheimring GP v1.42", 1),
     ("Motorsport Arena Oschersleben v1", 1),
