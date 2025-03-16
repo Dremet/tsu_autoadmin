@@ -10,7 +10,7 @@ NUMBER_TRACKS = 3
 
 TRACKS = [
     ("Circuit of the Americas v1.031", 1),
-    ("Sepang Circuit V2.01", 1),
+    ("Sepang Circuit V2.02", 1),
     ("Barcelona GP - Catalunya v1.06", 1),
     ("Silverstone Circuit V1.05", 1),
     ("Japanese GP v2.04", 1),
@@ -25,7 +25,7 @@ TRACKS = [
     ("Spa Francorchamps GP v3.12", 1),
     ("Hungaroring V2.04", 1),
     ("Canadian GP v1.12", 1),
-    ("Australian GP v1.14", 1),
+    ("Australian GP v1.16", 1),
     ("Daytona Road Course V2.01", 1),
 ]
 
